@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username">system</property>
+    <property name="hibernate.connection.password">sai</property>
+    <property name="show_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
+      
+      <!-- To Enable second level of cache uncomment below two lines -->
+
+
+      <!--<property name="cache.use_second_level_cache">true</property>
+      <property name="cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>-->
+      
+      
+      
+      <!--<mapping class="org.ravi.dto.UserDetails"/>
+      <mapping class="surrogate.UserDetails"/>
+
+      <mapping class="embedding_objects.UserDetails"/>     -->
+      <mapping class="attribute_overrides_embedded_objects.UserDetails"/>
+                <mapping class="save_collections.UserDetails"/>
+      <mapping class="configure_collections.UserDetails"/>
+      <mapping class="lazy_load.UserDetails"/>
+      <mapping class="eager_loading.UserDetails"/>
+
+      <mapping class="mapping.one_one.UserDetails"/>
+      <mapping class="mapping.one_one.Vehicle"/>
+
+      <mapping class="mapping.one_many.UserDetails"/>
+      <mapping class="mapping.one_many.Vehicle"/>
+
+      <mapping class="mapping.many_one.UserDetails"/>
+      <mapping class="mapping.many_one.Vehicle"/>
+
+      <mapping class="mapping.many_many.UserDetails"/>
+      <mapping class="mapping.many_many.Vehicle"/>
+
+      <mapping class="notfound.UserDetails"/>
+      <mapping class="notfound.Vehicle"/>
+
+      <mapping class="cascade.UserDetails"/>
+      <mapping class="cascade.Vehicle"/>
+
+      <mapping class="inheritance.singletablestatergy.Vehicle"/>
+      <mapping class="inheritance.singletablestatergy.TwoWheeler"/>
+      <mapping class="inheritance.singletablestatergy.FourWheeler"/>
+
+      <mapping class="inheritance.discriminator.Vehicle"/>
+      <mapping class="inheritance.discriminator.TwoWheeler"/>
+      <mapping class="inheritance.discriminator.FourWheeler"/>
+
+      <mapping class="inheritance.tableperclass.Vehicle"/>
+      <mapping class="inheritance.tableperclass.TwoWheeler"/>
+      <mapping class="inheritance.tableperclass.FourWheeler"/>
+
+      <mapping class="inheritance.joinedstatergy.Vehicle"/>
+      <mapping class="inheritance.joinedstatergy.TwoWheeler"/>
+      <mapping class="inheritance.joinedstatergy.FourWheeler"/>
+
+      <mapping class="crud.UserDetails"/>
+
+      <mapping class="detach2persist.UserDetails" />
+
+      <mapping class="hql.UserDetails"/>
+
+      <mapping class="pagination.UserDetails"/>
+
+      <mapping class="hql.parameter_binding.UserDetails"/>
+
+      <mapping class="hql.named_query.UserDetails"/>
+
+      <mapping class="hql.criteria.UserDetails"/>
+
+      <mapping class="hql.projection.UserDetails"/>
+
+      <mapping class="cache.level1cache.UserDetails"/>
+
+      <!--mapping class="cache.level2cache.UserDetails"/-->
+    </session-factory>
+</hibernate-configuration>
+
+<!--hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+        <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+        <property name="hibernate.connection.url">jdbc:h2:~/test</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <mapping resource="hibernate.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration-->
+
+        <!--     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+              <property name="driverClassName" value="org.h2.Driver"/>
+                <property name="url" value="jdbc:h2:~/test"/>
+                <property name="username" value="sa"/>
+                <property name="password" value=""/>
+            </bean>
+         -->
