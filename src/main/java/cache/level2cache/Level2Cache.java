@@ -35,13 +35,32 @@ public class Level2Cache {
         usd1.setUserId(1);
         usd1.setUserName("one");
 
+        UserDetails usd2 = new UserDetails();
+        usd2.setUserId(2);
+        usd2.setUserName("two");
+
 
         Configuration configuration = new Configuration().configure();
         // service registry in 4.3 version
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         SessionFactory sf = configuration.buildSessionFactory(serviceRegistry);
-        Session sess1 = sf.openSession();
 
+        Session sess = sf.openSession();
+        sess.beginTransaction();
+        sess.save(usd1);
+        sess.getTransaction().commit();
+        sess.beginTransaction();
+        sess.save(usd2);
+        sess.getTransaction().commit();
+        sess.close();
+
+        Map<String, ClassMetadata> classesMetadata1 = sf.getAllClassMetadata();
+        for (String entityName : classesMetadata1.keySet()) {
+            sf.evictEntity(entityName);
+        }
+
+
+        Session sess1 = sf.openSession();
         Transaction t1 = sess1.beginTransaction();
 
 
