@@ -4,11 +4,15 @@ package cache.level2cache;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.service.ServiceRegistry;
+import org.hibernate.stat.Statistics;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,23 +40,46 @@ public class Level2Cache {
         // service registry in 4.3 version
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         SessionFactory sf = configuration.buildSessionFactory(serviceRegistry);
-        Session sess = sf.openSession();
-        sess.beginTransaction();
-        sess.save(usd1);
-        sess.getTransaction().commit();
-        System.out.println("-----------Cache Example-------------");
-        UserDetails u1 = (UserDetails) sess.get(UserDetails.class,1);
-        UserDetails u2 = (UserDetails) sess.get(UserDetails.class,1);
-
-        System.out.println("Second query will not be fired for u1 & u2 bcoz the object usd1 is already in db");
-
-        sess.close();
-
-        System.out.println("After reopen session");
         Session sess1 = sf.openSession();
-        sess1.beginTransaction();
-        UserDetails u3 = (UserDetails) sess1.get(UserDetails.class,1);
-        UserDetails u4 = (UserDetails) sess1.get(UserDetails.class,1);
+
+        Transaction t1 = sess1.beginTransaction();
+
+
+        UserDetails u1 = (UserDetails)sess1.load(UserDetails.class, 1);
+        System.out.println(u1.getUserName());
+
+        u1 = (UserDetails)sess1.load(UserDetails.class, 1);
+        System.out.println(u1.getUserName());
+
+        //clear first level cache, so that second level cache is used
+        //sess1.evict(u1);
+        Map<String, ClassMetadata> classesMetadata = sf.getAllClassMetadata();
+        for (String entityName : classesMetadata.keySet()) {
+            sf.evictEntity(entityName);
+        }
+
+
+        System.out.println("after clearing cache............");
+
+        UserDetails u2 = (UserDetails)sess1.load(UserDetails.class, 1);
+        u2= (UserDetails)sess1.load(UserDetails.class, 1);
+        System.out.println(u2.getUserName());
+
+        u2= (UserDetails)sess1.load(UserDetails.class, 2);
+        System.out.println(u2.getUserName());
+
+
+        Session sess2 = sf.openSession();
+        u2= (UserDetails)sess2.load(UserDetails.class,1);
+        System.out.println(u2.getUserName());
+
+
+        t1.commit();
+        sf.close();
+
+
+
+
 
 
     }
