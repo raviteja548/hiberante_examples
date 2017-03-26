@@ -12,7 +12,14 @@ import java.util.Collection;
  * Time: 8:03 AM
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+/*
+Scenario: Eager Loading: Hibernate by default allows only lazy loading. i.e when you fetch data of an item its related collection items will
+                         not be fetched unless you call the getter method. So using fetch statergy as Eager will load data directly.
+ Test this scenario as: Hibernate loads data on proxy object, if we fetch data for an object then object data will be loaded
+                         but not collection data, collection data will be loaded only when we call getter, so if we close the session
+                         and try to call getter it gives an exception.
+                         But when fetch statergy is EAGER it will not give exception as data is loaded already.
+ */
     @Entity(name="userdet_eager_load")
     @Table(name="userdet_eager_load")
 public class UserDetails {

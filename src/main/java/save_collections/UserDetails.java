@@ -12,7 +12,10 @@ import java.util.Set;
  * Time: 8:03 AM
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+/*
+Scenario: to add list of address into db. for 1 user add 'n' addresses.
+          creates 2 tables, 1. userdetails 2. Table to store addresses , foreign key in address table will be prim key of userdetails
+ */
     @Entity(name="userdet_save_coll")
     @Table(name="userdet_save_coll")
 public class UserDetails {

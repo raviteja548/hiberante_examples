@@ -18,7 +18,8 @@ public class UserDetails {
     @Id @GeneratedValue
     private int userId;
     private String userName;
-    @Embedded
+    //This annotation helps to embed the fields present in address object to userdetails object
+    @Embedded     // This annotation here is not mandatory if we marked the class Address with @Embeddable annotation.
     private Address address;
 
 

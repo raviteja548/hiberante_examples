@@ -9,6 +9,7 @@ import javax.persistence.Embeddable;
  * Time: 4:39 PM
  * To change this template use File | Settings | File Templates.
  */
+// Embeddable annotation says that this object should be embedded in a object
 @Embeddable
 public class Address {
     private String doorNo;

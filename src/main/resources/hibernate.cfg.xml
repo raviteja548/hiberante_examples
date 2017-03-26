@@ -87,6 +87,8 @@
       <mapping class="cache.level1cache.UserDetails"/>
 
       <mapping class="cache.level2cache.UserDetails"/>
+
+      <mapping class="otherannotations.UserDetails"/>
     </session-factory>
 </hibernate-configuration>
 

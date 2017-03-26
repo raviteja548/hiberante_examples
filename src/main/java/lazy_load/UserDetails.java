@@ -16,7 +16,13 @@ import java.util.Collection;
  * Time: 8:03 AM
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+/*
+Scenario: Lazy loading i.e UserDetails object has a group of address associated.
+                           Whenever you fetch data using session, only data in object will be fetched and Collection elements will
+                           not be fetched unless you call the getter on that collection. This is called lazy loading
+Lazyloading is by default in hibernate.
+ */
+
     @Entity(name="userdet_lazy_load")
     @Table(name="userdet_lazy_load")
 public class UserDetails {

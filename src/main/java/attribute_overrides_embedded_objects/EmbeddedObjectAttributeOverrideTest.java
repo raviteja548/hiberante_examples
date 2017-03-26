@@ -41,7 +41,7 @@ public class EmbeddedObjectAttributeOverrideTest {
         sess.save(usd);
         sess.getTransaction().commit();
         sess.close();
-
+       sf.close();
 
 
     }

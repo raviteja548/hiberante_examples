@@ -19,7 +19,8 @@ public class UserDetails {
     private String userName;
     @Embedded
     private Address homeAddress;
-
+     //Scenario: we have two Address objects to be embedded, since column cannot be duplicate we use below annotation
+            //to create seperate column names for address object related
     // The follwing column names for officeAdress shall be overridden on the actual names
     @Embedded
     @AttributeOverrides({

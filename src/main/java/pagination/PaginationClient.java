@@ -50,13 +50,13 @@ public class PaginationClient {
         Query query = sess.createQuery("from usdt_pagi");
         query.setFirstResult(3);
         query.setMaxResults(4);
-
+        // fetches results from 3rd row and a total of 4 records
         List<UserDetails> userDetailsList = query.list();
         for(UserDetails userDetails:userDetailsList){
             System.out.println(userDetails.getUserId()+" "+userDetails.getUserName());
         }
 
-
+         // fetch results as a list of type string
         Query query1 = sess.createQuery("select userName from usdt_pagi");
         List<String> userNamesList = query1.list();
         for(String userName:userNamesList){
