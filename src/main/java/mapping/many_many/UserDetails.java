@@ -11,7 +11,14 @@ import java.util.Collection;
  * Time: 8:03 AM
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+/*
+Scenario: Many To Many
+          One User can have many vehicles & 1 vehicle may be owned by different users.
+          Use @ManyToMany annotation on both reference in UserDetails & Vehicle class.
+          Data will be inserted in both tables and further 2 tables will be created by default mapping by user-vehicle & vehicle-user
+          The creation of two tables will happen only when used ManyToMany annotations in both classes and not using attribute (mappedBy = "vehicleCollection")
+          We have used (mappedBy = "vehicleCollection") annotation so mapping will be managed only by 1 table.
+ */
     @Entity(name="usdt_mny_mny")
     @Table(name="usdt_mny_mny")
 public class UserDetails {

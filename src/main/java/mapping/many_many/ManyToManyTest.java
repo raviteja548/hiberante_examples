@@ -13,9 +13,27 @@ import org.hibernate.service.ServiceRegistry;
  * Time: 8:09 AM
  * To change this template use File | Settings | File Templates.
  */
+
+/*
+usdt_mny_mny:
+USERID	USERNAME
+1	ManyToMany User
+2	ManyToMany User
+
+vehcl_mny_mny:
+VID	VEHICLENAME
+3692	Active 3G
+2943	Splendor
+
+usdt_mny_mny_vehcl_mny_mny:
+USERDETAILSLIST_USERID	VEHICLECOLLECTION_VID
+1	3692
+1	2943
+2	2943
+ */
 public class ManyToManyTest {
     public static void main(String args[]){
-
+         //refere UserDetails for further comments
         // u can either use mapped by attribute in either of the POJO's, including at one POJO helps to create only 1
         //table, else hibernate would create 2 tables for mapping as user_vehicle and vehicle_user
 

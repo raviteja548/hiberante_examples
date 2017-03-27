@@ -13,6 +13,22 @@ import org.hibernate.service.ServiceRegistry;
  * Time: 8:09 AM
  * To change this template use File | Settings | File Templates.
  */
+
+/*
+usdt_many_1:
+USERID	USERNAME
+1	ManyToOne User
+
+vehcl_many_1:
+VID	VEHICLENAME	US_VID
+3692	Active 3G	1
+2943	Splendor	1
+
+usdt_many_1_vehcl_many_1:
+USER_ID	VEHICLE_ID
+1	3692
+1	2943
+ */
 public class ManyToOneTest {
     public static void main(String args[]){
 

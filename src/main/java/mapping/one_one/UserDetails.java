@@ -10,7 +10,11 @@ import java.util.Date;
  * Time: 8:03 AM
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+/*  Scenario: One To One Mapping.
+              Using @OneToOne annotation we can have reference of vehicle in userdetails class.
+              If we have reference of vehicle class and not used onetoone annotation, it results in mapping exception
+
+ */
     @Entity(name="user_details_one_one")
     @Table(name="user_details_one_one")
 public class UserDetails {

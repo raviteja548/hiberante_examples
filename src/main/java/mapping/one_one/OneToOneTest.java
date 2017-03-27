@@ -15,9 +15,17 @@ import java.util.Date;
  * Time: 8:09 AM
  * To change this template use File | Settings | File Templates.
  */
+
+/*
+USERID	USERNAME	US_VID
+1	OneToOne User	8088
+
+VID	  VEHICLENAME
+8088  Fazer
+ */
 public class OneToOneTest {
     public static void main(String args[]){
-
+         //Refer UserDetails class for comments
 
         UserDetails usd = new UserDetails();
         usd.setUserId(1);

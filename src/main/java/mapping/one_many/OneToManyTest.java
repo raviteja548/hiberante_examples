@@ -13,9 +13,26 @@ import org.hibernate.service.ServiceRegistry;
  * Time: 8:09 AM
  * To change this template use File | Settings | File Templates.
  */
+
+/*
+usdt_1_many:
+USERID	USERNAME
+1	OneToMany User
+
+vehcl_1_many:
+VID	VEHICLENAME
+3692	Active 3G
+2943	Splendor
+
+usdt_1_many_vehcl_1_many:
+USER_ID	VEHICLE_ID
+1	3692
+1	2943
+
+ */
 public class OneToManyTest {
     public static void main(String args[]){
-
+        //Refere UserDetails class for comments
 
         UserDetails usd = new UserDetails();
         usd.setUserId(1);

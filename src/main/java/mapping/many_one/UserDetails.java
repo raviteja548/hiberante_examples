@@ -11,7 +11,17 @@ import java.util.Collection;
  * Time: 8:03 AM
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+/*
+Scenario: Many to One
+          UserDetails has a reference to collection item hence relation will be 1-M
+          Use annotation @OneToMany. @JoinTable annotation is optional.
+          Data is stored in individual tables and a new table is created to store relationships between these 2 tables.
+          attributes for jointable 1. joinColumns is primary key from UserDetails table
+                                   2. InverseJoinColumns is primary key of Vehicle table
+          Here we have reference only in UserTable, we cant really fetch details of user from vehicle table,
+                For that create a reference of user in vehicle and mark with @ManyToOne annotation
+          Then we can fetch vehicles from user & user from vehicle as well
+ */
     @Entity(name="usdt_many_1")
     @Table(name="usdt_many_1")
 public class UserDetails {
