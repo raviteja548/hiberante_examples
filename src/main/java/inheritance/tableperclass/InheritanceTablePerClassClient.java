@@ -13,6 +13,21 @@ import org.hibernate.service.ServiceRegistry;
  * Time: 9:28 PM
  * To change this template use File | Settings | File Templates.
  */
+
+/*
+In tableper class statergy Inherited class data along with parent class attributes are stored in inherited class table only.
+veh_inh_tableperclass:
+VID	VNAME
+1	Vehicle
+
+inh_tw_tableperclass:
+VID	VNAME	STEERINGHANDLE
+2	Activa	Bike Handle
+
+inh_fw_tableperclass:
+VID	VNAME	STEERINGWHEEL
+3	Porsche	 Car Steering
+ */
 public class InheritanceTablePerClassClient {
     public static void main(String args[]){
 

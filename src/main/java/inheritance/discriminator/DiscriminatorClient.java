@@ -13,6 +13,15 @@ import org.hibernate.service.ServiceRegistry;
  * Time: 9:28 PM
  * To change this template use File | Settings | File Templates.
  */
+/*
+This is an extension to  SingleTable statergy, where in it creates a new column dtype to identify which class object it is
+
+VEHICLE_TYPE	VID	  VNAME	   STEERINGHANDLE	STEERINGWHEEL
+123	            1	  Vehicle	      -	             -
+-1970198920	    2	    Activa  	Bike Handle     	-
+-1321993646	    3	    Porsche	        -	        Car Steering
+-1321993646	    4	    Porschess	    -	        Car Steering
+ */
 public class DiscriminatorClient {
     public static void main(String args[]){
 

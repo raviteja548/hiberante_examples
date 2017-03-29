@@ -13,6 +13,13 @@ import org.hibernate.service.ServiceRegistry;
  * Time: 9:28 PM
  * To change this template use File | Settings | File Templates.
  */
+/*
+In Joined stagergy, 1. The inherited object data and parent class id is stored in a table.
+                    2. All properties which are inherited from parent class will be stored in parent class related table
+                    3. Id defined in parent class will be used to identify records in child classes.
+   // use @Inheritance(strategy = InheritanceType.JOINED) on parent class
+
+ */
 public class InheritanceJoinedStatergyClient {
     public static void main(String args[]){
 

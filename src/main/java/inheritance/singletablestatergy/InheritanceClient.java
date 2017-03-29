@@ -13,6 +13,17 @@ import org.hibernate.service.ServiceRegistry;
  * Time: 9:28 PM
  * To change this template use File | Settings | File Templates.
  */
+/*
+Scenario: Inheritance, single table statergy.
+          Since Two wheeler, Four wheeler are type of vehicle objects they are created in same table as we haven't specified
+          any statergy.
+          A new column is create called dtype to determine which class is that.
+veh_inh_single:
+    DTYPE	   VID	VNAME	STEERINGHANDLE	STEERINGWHEEL
+    Vehicle	    1	Vehicle	       -	         -
+    TwoWheeler	2	Activa	 Bike Handle	     -
+    FourWheeler	3	Porsche	      -	       Car Steering
+ */
 public class InheritanceClient {
     public static void main(String args[]){
 

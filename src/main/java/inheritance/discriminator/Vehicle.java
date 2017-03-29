@@ -9,6 +9,12 @@ import javax.persistence.*;
  * Time: 9:23 PM
  * To change this template use File | Settings | File Templates.
  */
+/*
+instead of having column dtype hibernate creates  column with name vehicle_type of type integer  and setting
+discriminator value on all types of vehicle class would actually help to understand which class it is
+
+If discriminator value is not set hibernate creates own data
+ */
 @Entity (name="veh_inh_single_disc")
 @Table(name="veh_inh_single_disc")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

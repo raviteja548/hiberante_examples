@@ -15,7 +15,11 @@ import java.util.Collection;
  * Time: 8:03 AM
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+/*
+Scenario: when object is referenced in any other object with having one-one/one-many/ any, it is not necessary to save referenced objects,
+            instead use CascadeType.ALL This scenario will be used when you have many references or a list of objects in a class.
+
+ */
     @Entity(name="usdt_cascade")
     @Table(name="usdt_cascade")
 public class UserDetails {

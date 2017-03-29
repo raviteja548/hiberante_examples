@@ -16,7 +16,7 @@ import org.hibernate.service.ServiceRegistry;
 public class CascadeTest {
     public static void main(String args[]){
 
-
+        // Refer UserDetails for comments
         UserDetails usd = new UserDetails();
         usd.setUserId(1);
         usd.setUserName("Cascade User");
@@ -36,7 +36,7 @@ public class CascadeTest {
         sess.beginTransaction();
 
         sess.persist(usd);
-        //sess.save(vehicle);
+        //sess.save(vehicle);  // not necessary to save vehicle object, as we are using cascade
 
 
         sess.getTransaction().commit();
